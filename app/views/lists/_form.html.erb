@@ -1,0 +1,47 @@
+<%= form_with(model: list, local: true) do |form| %>
+  <% if list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(list.errors.count, "error") %> prohibited this list from being saved:</h2>
+
+      <ul>
+      <% list.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!--<div class="field">-->
+    <!--<%= form.label :user_id %>-->
+    <!--<%= form.text_field :user_id, id: :list_user_id %>-->
+  <!--</div>-->
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :list_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type_of_list %>
+    <%= form.number_field :type_of_list, id: :list_type_of_list %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mode %>
+    <%= form.number_field :mode, id: :list_mode %>
+  </div>
+
+  <div class="field">
+    <%= form.label :to_approve %>
+    <%= form.number_field :to_approve, id: :list_to_approve %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type_to_approve %>
+    <%= form.number_field :type_to_approve, id: :list_type_to_approve %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

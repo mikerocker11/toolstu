@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @list.user %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @list.title %>
+</p>
+
+<p>
+  <strong>Type of list:</strong>
+  <%= @list.type_of_list %>
+</p>
+
+<p>
+  <strong>Mode:</strong>
+  <%= @list.mode %>
+</p>
+
+<p>
+  <strong>To approve:</strong>
+  <%= @list.to_approve %>
+</p>
+
+<p>
+  <strong>Type to approve:</strong>
+  <%= @list.type_to_approve %>
+</p>
+
+<%= link_to 'Edit', edit_list_path(@list) %> |
+<%= link_to 'Back', lists_path %>
