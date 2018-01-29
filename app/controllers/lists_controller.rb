@@ -15,17 +15,21 @@ class ListsController < ApplicationController
   # GET /lists/new
   def new
     @list = List.new
+    @question = @list.questions.build
+    @question.answers.build
   end
 
   # GET /lists/1/edit
   def edit
+    @question = @list.questions.build
+    @question.answers.build
   end
 
   # POST /lists
   # POST /lists.json
   def create
-    @list = List.new(list_params)
-
+    binding.pry
+    @list =  current_user.lists.new(list_params)
     respond_to do |format|
       if @list.save
         format.html { redirect_to @list, notice: 'List was successfully created.' }
@@ -40,6 +44,7 @@ class ListsController < ApplicationController
   # PATCH/PUT /lists/1
   # PATCH/PUT /lists/1.json
   def update
+    # binding.pry
     respond_to do |format|
       if @list.update(list_params)
         format.html { redirect_to @list, notice: 'List was successfully updated.' }
@@ -69,6 +74,7 @@ class ListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
-      params.require(:list).permit(:user_id, :title, :type_of_list, :mode, :to_approve, :type_to_approve)
+      params.require(:list).permit(:user_id, :title, :type_of_list, :mode, :to_approve, :type_to_approve,
+      questions_attributes:[:id, :question, :_destroy, answers_attributes:[:id, :response, :_destroy]])
     end
 end

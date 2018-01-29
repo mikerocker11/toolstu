@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  list: one
+  question: MyText
+  value_of_question: 1
+  type_of_value: 1
+  status: 1
+
+two:
+  list: two
+  question: MyText
+  value_of_question: 1
+  type_of_value: 1
+  status: 1

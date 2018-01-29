@@ -2,7 +2,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @list.user %>
+  <%= @list.user.email %>
 </p>
 
 <p>
@@ -29,6 +29,18 @@
   <strong>Type to approve:</strong>
   <%= @list.type_to_approve %>
 </p>
+
+<% if @list.questions.present? %>
+    <h2>List of questions</h2>
+    <% index_auto = 1 %>
+    <% @list.questions.each do |question| %>
+        <p> <%= "<strong>#{index_auto}</strong> - #{question.question}".html_safe %> </p>
+        <% index_auto += 1 %>
+    <% end %>
+<% else %>
+    <p><%= link_to 'Add some questions', edit_list_path(@list) %></p>
+<% end %>
+
 
 <%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>
